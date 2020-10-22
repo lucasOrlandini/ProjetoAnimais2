@@ -27,7 +27,8 @@ namespace Fatec.ProjetoAnimais.Controllers
                     nome = x.nome,
                     sobrenome = x.sobrenome,
                     datanasc = x.datanasc,
-                    senha = x.senha
+                    senha = x.senha,
+                    perfil = x.perfil
                 }));
 
                 return View(listViewModel);
@@ -62,7 +63,9 @@ namespace Fatec.ProjetoAnimais.Controllers
                         nome = model.nome,
                         sobrenome = model.sobrenome,
                         datanasc = model.datanasc,
-                        senha = model.senha
+                        senha = model.senha,
+                        perfil = model.perfil
+
                     };
 
                     context.Pessoa.Add(pessoa);
@@ -96,7 +99,9 @@ namespace Fatec.ProjetoAnimais.Controllers
                     nome = db.nome,
                     sobrenome = db.sobrenome,
                     datanasc = db.datanasc,
-                    senha = db.senha
+                    senha = db.senha,
+                    perfil = db.perfil
+
                 };
                 return View(model);
             }
@@ -127,6 +132,8 @@ namespace Fatec.ProjetoAnimais.Controllers
                     db.sobrenome = model.sobrenome;
                     db.datanasc = model.datanasc;
                     db.senha = model.senha;
+                    db.perfil = model.perfil;
+
                     context.Entry(db).State = EntityState.Modified;
                     context.SaveChanges();
                 }
@@ -155,7 +162,9 @@ namespace Fatec.ProjetoAnimais.Controllers
                     nome = db.nome,
                     sobrenome = db.sobrenome,
                     datanasc = db.datanasc,
-                    senha = db.senha
+                    senha = db.senha,
+                    perfil = db.perfil
+
                 };
 
                 return View(model);

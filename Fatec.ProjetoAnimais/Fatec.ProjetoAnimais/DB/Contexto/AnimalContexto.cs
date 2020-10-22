@@ -26,9 +26,9 @@ namespace Fatec.ProjetoAnimais.DB.Contexto
             modelBuilder.Entity<Animal>().Property(c => c.especie).HasMaxLength(255);
             modelBuilder.Entity<Animal>().Property(c => c.porte).HasMaxLength(255);
             modelBuilder.Entity<Animal>().Property(c => c.raca).HasMaxLength(255);
-            modelBuilder.Entity<Animal>().Property(c => c.sexo).HasMaxLength(255);
-            modelBuilder.Entity<Animal>().Property(c => c.vacinas).HasMaxLength(255);
-            modelBuilder.Entity<Animal>().Property(c => c.situacao).HasMaxLength(55);
+            modelBuilder.Entity<Animal>().Property(c => c.sexo);
+            modelBuilder.Entity<Animal>().Property(c => c.vacinas);
+            modelBuilder.Entity<Animal>().Property(c => c.situacao);
 
             //Pessoa
             modelBuilder.Entity<Pessoa>().ToTable("Pessoa");
@@ -40,6 +40,8 @@ namespace Fatec.ProjetoAnimais.DB.Contexto
             modelBuilder.Entity<Pessoa>().Property(c => c.sobrenome).HasMaxLength(255);
             modelBuilder.Entity<Pessoa>().Property(c => c.datanasc);
             modelBuilder.Entity<Pessoa>().Property(c => c.senha).HasMaxLength(255);
+            modelBuilder.Entity<Pessoa>().Property(c => c.perfil);
+
         }
 
         public virtual DbSet<Animal> Animal { get; set; }

@@ -8,9 +8,9 @@
         public string especie { get; set; }
         public string porte { get; set; }
         public string raca { get; set; }
-        public string sexo { get; set; }
-        public string vacinas { get; set; }
-        public string situacao { get; set; }
+        public int sexo { get; set; }
+        public int vacinas { get; set; }
+        public int situacao { get; set; }
 
     }
 }

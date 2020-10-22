@@ -19,22 +19,23 @@
                 Cidade encontrado
             </th>
             <th>
-                Condições
-            </th>
-            <th>
                 Espécie
-            </th>
-            <th>
-                Porte
+
             </th>
             <th>
                 Raça
             </th>
             <th>
+                Condições
+            </th>
+            <th>
+                Porte
+            </th>
+            <th>
                 Sexo
             </th>
             <th>
-               Vacinas
+                Vacinas
             </th>
             <th>
                 Situação
@@ -49,41 +50,46 @@
 
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.cidade_encontrado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.condicoes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.especie)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.porte)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.raca)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.sexo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.vacinas)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.situacao)
-            </td>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cidade_encontrado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.especie)
+
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.raca)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.condicoes)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.porte)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descSexo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descVacinas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descSituacao)
+                </td>
 
 
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.id })
-                @Html.ActionLink("Excluir", "Delete", new { id = item.id })
-            </td>
-        </tr>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.id })
+                    @Html.ActionLink("Excluir", "Delete", new { id = item.id })
+                </td>
+            </tr>
         }
     </tbody>
 
