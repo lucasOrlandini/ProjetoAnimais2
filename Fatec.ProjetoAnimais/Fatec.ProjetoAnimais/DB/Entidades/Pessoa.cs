@@ -12,6 +12,11 @@ namespace Fatec.ProjetoAnimais.DB.Entitidades
         public DateTime? datanasc { get; set; }
         public string senha { get; set; }
         public int perfil { get; set; }
+        public string cpf2{ get; set; }
+        public string cpf3{ get; set; }
+
+        public string cpf4{ get; set; }
+
 
     }
 }
