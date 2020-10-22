@@ -13,5 +13,9 @@ namespace Fatec.ProjetoAnimais.DB.Entitidades
         public string senha { get; set; }
         public int perfil { get; set; }
 
+        public int perfil2 { get; set; }
+        public int perfil3 { get; set; }
+        public int perfil4 { get; set; }
+
     }
 }
