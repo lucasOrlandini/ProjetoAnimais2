@@ -1,0 +1,47 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-image: url("/imagens/filhote.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    
+    
+     /*background: #EEEED1;*/
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.navbar-inverse {
+    background-color: #000000a1;
+    border-color: #000000a1;
+}
+    .navbar-inverse .navbar-nav > li > a {
+        color: #EEEED1;
+        font-weight: bolder;
+        font-size: 15px
+    }
+    .navbar-inverse .navbar-brand {
+        color: #EEEED1;
+        font-weight: bolder;
+        font-size: 20px
+    }
+.body-content {
+ 
+}

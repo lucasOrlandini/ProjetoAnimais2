@@ -1,0 +1,39 @@
+﻿@model Fatec.ProjetoAnimais.Models.AnimalViewModel
+
+@{
+    ViewBag.Title = "Animais";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Exclusão de Animal</h3>
+
+<h4>Confirma a exclusão deste Animal?</h4>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.cidade_encontrado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.cidade_encontrado)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" />
+            <br />
+            <br />
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

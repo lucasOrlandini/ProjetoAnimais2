@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Fatec.ProjetoAnimais.Models.PessoaViewModel>
+
+@{
+    ViewBag.Title = "Pessoas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Pessoas</h3>
+<p>
+    @Html.ActionLink("Novo", "Create")
+</p>
+<table class="table" id="tbDados">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Cpf
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Nome
+            </th>
+            <th>
+                Sobrenome
+            </th>
+            <th>
+                Data de nascimento
+            </th>
+            <th>
+                Senha
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cpf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sobrenome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.datanasc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.senha)
+                </td>
+                
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.id })
+                    @Html.ActionLink("Excluir", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#tbDados').dataTable({
+            "language": {
+                "paginate": { "first ": "Primeira", "previous": "Anterior", "next": "Próxima", "last": "Última" },
+                "emptyTable": "Consulta não retornou registros",
+                "info": "Exibindo de _START_ até _END_ de _TOTAL_ registros",
+                "infoEmpty": "Exibindo 0 registros",
+                "infoFiltered": "(filtrados do total de _MAX_ registros)",
+                "infoPostFix": "", "thousands": ",",
+                "lengthMenu": "Exibir _MENU_ registro(s) por página",
+                "loadingRecords": "Carregando...",
+                "processing": "Processando...",
+                "search": "Filtrar:",
+                "zeroRecords": "Consulta não retornou registros",
+            },
+
+        });
+
+    });
+
+</script>
+
