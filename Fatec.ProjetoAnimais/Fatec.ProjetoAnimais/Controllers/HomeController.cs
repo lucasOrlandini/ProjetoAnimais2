@@ -11,6 +11,8 @@ namespace Fatec.ProjetoAnimais.Controllers
         public ActionResult Index()
         {
             return View();
+
+
         }
     }
 }
