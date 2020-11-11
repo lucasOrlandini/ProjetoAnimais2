@@ -8,11 +8,13 @@ namespace Fatec.ProjetoAnimais.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult IndexAdmin()
         {
             return View();
-
-
+        }
+        public ActionResult IndexUsuario()
+        {
+            return View();
         }
     }
 }

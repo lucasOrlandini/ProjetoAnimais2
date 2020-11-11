@@ -6,6 +6,7 @@ using System.Web;
 using System.Linq;
 using System.Web.Mvc;
 using Fatec.ProjetoAnimais.DB.Entitidades;
+using Fatec.ProjetoAnimais.Sessao;
 
 namespace Fatec.ProjetoAnimais.Controllers
 {
@@ -50,7 +51,15 @@ namespace Fatec.ProjetoAnimais.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                ControleSessao.UsuarioLogado = new PessoaViewModel { email = pessoa.email, perfil = pessoa.perfil, nome = pessoa.nome };
+                if (pessoa.perfil == (int)PessoaViewModel.ePerfil.Admin)
+                {
+                    return RedirectToAction("IndexAdmin", "Home");
+                }
+                else
+                {
+                    return RedirectToAction("IndexUsuario", "Home");
+                }               
             }
 
 

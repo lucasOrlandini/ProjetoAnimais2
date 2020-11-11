@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Fatec.ProjetoAnimais.Models
+@using Fatec.ProjetoAnimais.Sessao
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -13,25 +15,51 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Projeto Animais", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Manutenção de pessoas", "Index", "Pessoa")</li>
-                    <li>@Html.ActionLink("Manutenção de animais", "Index", "Animal")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+    @if (ControleSessao.UsuarioLogado.perfil == (int)PessoaViewModel.ePerfil.Admin)
+    {
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Projeto Animais", "IndexAdmin", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Manutenção de pessoas", "Index", "Pessoa")</li>
+                        <li>@Html.ActionLink("Manutenção de animais", "Index", "Animal")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
         </div>
-    </div>
+    }
+    else
+    {
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Projeto Animais", "IndexUsuario", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    @*<ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Manutenção de pessoas", "Index", "Pessoa")</li>
+                            <li>@Html.ActionLink("Manutenção de animais", "Index", "Animal")</li>
+                        </ul>*@
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+    }
+
     <div class="container body-content">
         @RenderBody()
         <hr />

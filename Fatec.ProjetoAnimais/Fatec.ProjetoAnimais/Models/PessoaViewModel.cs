@@ -5,7 +5,12 @@ namespace Fatec.ProjetoAnimais.Models
 {
     public class PessoaViewModel
     {
-
+  
+        public enum ePerfil
+        {
+            Admin = 1,
+            Usuario = 2
+        }
 
         public int id { get; set; }
 
