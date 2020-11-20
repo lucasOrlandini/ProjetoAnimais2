@@ -1,5 +1,10 @@
-﻿@{
+﻿
+
+
+@{
     ViewBag.Title = "Projeto Animais";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
 <style>
@@ -8,9 +13,60 @@
         background-repeat: no-repeat;
         background-size: 100%;
     }
+
+    /*.row {
+        position: absolute;
+        top: 50%;*/ /* posiciona na metade da tela */
+    /*margin-top: -25px;*/ /* e retrocede metade da altura */
+    /*}*/
+    /*}*/
+
+    .btn-default {
+        font-size: 20px;
+        background-color: #000000eb;
+        color: white;
+    }
+
+    .btn-primary {
+        font-size: 20px;
+        background-color: #000000eb;
+        color: white;
+        border-color: #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .btn-primary:hover {
+           /* text-decoration: underline;*/
+            background: #ccc;
+            color: #333;
+        }
 </style>
 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="row" align="center" top="50%">
+    <div class="col" width="100px">
+        <input type="button" value="Adotar um animal" class="btn btn-default" style="width: 300px; height: 80px " />
+    </div>
+    <br />
+    <div class="col">
 
-<div class="row">
-   USUARIO
+        <a href="@Url.Action("Create","Animal")" class="btn btn-primary" style="width: 280px; height: 80px">Registrar um animal</a>
+
+
+        @*<input type="button" value="Registrar um Animal" name="Create" class="btn btn-default" style="width: 300px; height: 80px" />*@
+    </div><br />
+    <div class="w-100"></div>
+    <div class="col">
+        <input type="button" value="Relatório" class="btn btn-default" style="width: 300px; height: 80px" />
+
+    </div>
 </div>

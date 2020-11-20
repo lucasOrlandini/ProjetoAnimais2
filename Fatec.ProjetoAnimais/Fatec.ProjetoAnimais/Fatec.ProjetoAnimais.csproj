@@ -245,12 +245,15 @@
     <Content Include="Content\Site.css" />
     <Content Include="imagens\abandonoanimais.jpg" />
     <Content Include="imagens\cachorroJhow.jpeg" />
+    <Content Include="imagens\Cachorrologin.jpg" />
+    <Content Include="imagens\CachorroLogin2.jpg" />
     <Content Include="imagens\capa.jpg" />
     <Content Include="imagens\capaAnimal.jpg" />
     <Content Include="imagens\feliz.jpg" />
     <Content Include="imagens\filhote.jpg" />
     <Content Include="imagens\imagemd.jpg" />
     <Content Include="imagens\login.jpg" />
+    <Content Include="imagens\login3.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />

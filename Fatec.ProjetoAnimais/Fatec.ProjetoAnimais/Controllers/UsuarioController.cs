@@ -11,6 +11,8 @@ namespace Fatec.ProjetoAnimais.Controllers
      
 
         // GET: Release/Create
+
+        //definindo que o auto cadastro sempre vai ser o usuário
         public ActionResult AutoCadastro()
         {
             var model = new PessoaViewModel {perfil = (int)PessoaViewModel.ePerfil.Usuario };
