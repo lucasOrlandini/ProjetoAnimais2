@@ -215,17 +215,20 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\ParceiroController .cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\PessoaController.cs" />
     <Compile Include="Controllers\AnimalController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DB\Contexto\AnimalContexto.cs" />
+    <Compile Include="DB\Entidades\Parceiro.cs" />
     <Compile Include="DB\Entidades\Animal.cs" />
     <Compile Include="DB\Entidades\Pessoa.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ParceiroViewModel.cs" />
     <Compile Include="Models\PessoaViewModel.cs" />
     <Compile Include="Models\AnimalViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
@@ -294,6 +297,10 @@
     <Content Include="Views\Pessoa\Index.cshtml" />
     <Content Include="Views\Home\IndexAdmin.cshtml" />
     <Content Include="Views\Usuario\AutoCadastro.cshtml" />
+    <Content Include="Views\Parceiro\Create.cshtml" />
+    <Content Include="Views\Parceiro\Delete.cshtml" />
+    <Content Include="Views\Parceiro\Edit.cshtml" />
+    <Content Include="Views\Parceiro\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

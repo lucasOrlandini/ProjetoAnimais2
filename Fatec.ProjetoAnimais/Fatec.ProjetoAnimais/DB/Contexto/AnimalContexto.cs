@@ -42,9 +42,26 @@ namespace Fatec.ProjetoAnimais.DB.Contexto
             modelBuilder.Entity<Pessoa>().Property(c => c.senha).HasMaxLength(255);
             modelBuilder.Entity<Pessoa>().Property(c => c.perfil);
 
+
+            //Parceiro
+            modelBuilder.Entity<Parceiro>().ToTable("Parceiro");
+            modelBuilder.Entity<Parceiro>().HasKey(c => c.id);
+            modelBuilder.Entity<Parceiro>().Property(x => x.id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<Parceiro>().Property(c => c.nome).HasMaxLength(45);
+            modelBuilder.Entity<Parceiro>().Property(c => c.telefone).HasMaxLength(9);
+            modelBuilder.Entity<Parceiro>().Property(c => c.email).HasMaxLength(255);
+            modelBuilder.Entity<Parceiro>().Property(c => c.endereco).HasMaxLength(255);
+            modelBuilder.Entity<Parceiro>().Property(c => c.motivosParceria).HasMaxLength(255); ;
+            modelBuilder.Entity<Parceiro>().Property(c => c.cnpjCpf).HasMaxLength(14);
+           
+
+
+
         }
 
         public virtual DbSet<Animal> Animal { get; set; }
         public virtual DbSet<Pessoa> Pessoa { get; set; }
+
+        public virtual DbSet<Parceiro> Parceiro { get; set; }
     }
 }
