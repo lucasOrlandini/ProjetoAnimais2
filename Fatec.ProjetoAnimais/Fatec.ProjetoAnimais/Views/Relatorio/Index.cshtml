@@ -38,7 +38,7 @@
     }
 
         .btn-primary:hover {
-           /* text-decoration: underline;*/
+            /* text-decoration: underline;*/
             background: #ccc;
             color: #333;
         }
@@ -53,25 +53,30 @@
 <br />
 <br />
 <div class="row" align="center" top="50%">
-    <div class="col" width="100px">
-        <a href="@Url.Action("ListaAdocao","Animal")" class="btn btn-primary" style="width: 280px; height: 80px">Adotar um animal</a>
-    </div>
-    <br/>
+
+
     <div class="col">
 
-        <a href="@Url.Action("Create","Animal")" class="btn btn-primary" style="width: 280px; height: 80px">Registrar um animal</a>
+        <a href="@Url.Action("DoacoesRealizadas","Relatorio")" class="btn btn-primary" style="width: 280px; height: 80px">Doações realizadas</a>
 
 
         @*<input type="button" value="Registrar um Animal" name="Create" class="btn btn-default" style="width: 300px; height: 80px" />*@
     </div>
-    <br/>
+    <br />
     <div class="w-100"></div>
-     <br/>
+    <div class="col">
+        <a href="@Url.Action("AnimaisDisponiveis","Relatorio")" class="btn btn-primary" style="width: 280px; height: 80px">Animais Disponíveis</a>
+
+    </div>
+    <br />
     <div class="col">
 
-        <a href="@Url.Action("Create","Doacoes")" class="btn btn-primary" style="width: 280px; height: 80px">Faça uma doação!</a>
+        <a href="@Url.Action("AnimaisIndiponiveis","Relatorio")" class="btn btn-primary" style="width: 280px; height: 80px">Animais Indisponiveis</a>
 
 
         @*<input type="button" value="Registrar um Animal" name="Create" class="btn btn-default" style="width: 300px; height: 80px" />*@
     </div><br />
+</div>
+<div>
+    @Html.ActionLink("Voltar", "IndexAdmin", "Home")
 </div>

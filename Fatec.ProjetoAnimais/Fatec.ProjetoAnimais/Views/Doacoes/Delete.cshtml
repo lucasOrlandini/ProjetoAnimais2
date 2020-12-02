@@ -1,13 +1,13 @@
-﻿@model Fatec.ProjetoAnimais.Models.ParceiroViewModel
+﻿@model Fatec.ProjetoAnimais.Models.DoacoesViewModel
 
 @{
-    ViewBag.Title = "Parceiro";
+    ViewBag.Title = "Doacoes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3>Exclusão de Pessoa</h3>
+<h3>Exclusão de doação</h3>
 
-<h4>Confirma a exclusão desta Parceria?</h4>
+<h4>Confirma a exclusão desta doação?</h4>
 <div>
     <hr />
     <dl class="dl-horizontal">
@@ -18,10 +18,10 @@
             @Html.DisplayFor(model => model.id)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.email)
+            @Html.DisplayNameFor(model => model.nome)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.email)
+            @Html.DisplayFor(model => model.nome)
         </dd>
     </dl>
 

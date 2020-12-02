@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Fatec.ProjetoAnimais.Models.AnimalViewModel>
+
+@{
+    ViewBag.Title = "Animais Indisponíveis";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Animais Indisponíveis</h3>
+
+<table class="table" id="tbDados">
+    <thead>
+        <tr>
+            <th>
+                Espécie
+            </th>
+            <th>
+                Raça
+            </th>
+            <th>
+                Condições
+            </th>
+            <th>
+                Porte
+            </th>
+            <th>
+                Sexo
+            </th>
+            <th>
+                Cidade encontrado
+            </th>
+            <th>
+                Vacinas
+            </th>
+            <th>
+                Data Adoção
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.especie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.raca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.condicoes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.porte)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descSexo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cidade_encontrado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descVacinas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_adocao)
+            </td>
+        </tr>
+        }
+    </tbody>
+
+</table>
+<div>
+    @Html.ActionLink("Voltar", "Index", "Relatorio")
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#tbDados').dataTable({
+            "language": {
+                "paginate": { "first ": "Primeira", "previous": "Anterior", "next": "Próxima", "last": "Última" },
+                "emptyTable": "Consulta não retornou registros",
+                "info": "Exibindo de _START_ até _END_ de _TOTAL_ registros",
+                "infoEmpty": "Exibindo 0 registros",
+                "infoFiltered": "(filtrados do total de _MAX_ registros)",
+                "infoPostFix": "", "thousands": ",",
+                "lengthMenu": "Exibir _MENU_ registro(s) por página",
+                "loadingRecords": "Carregando...",
+                "processing": "Processando...",
+                "search": "Filtrar:",
+                "zeroRecords": "Consulta não retornou registros",
+            },
+
+        });
+
+    });
+
+</script>
+

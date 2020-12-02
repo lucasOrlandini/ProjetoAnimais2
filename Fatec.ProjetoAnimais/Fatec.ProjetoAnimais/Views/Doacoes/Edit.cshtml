@@ -1,12 +1,11 @@
-﻿@model Fatec.ProjetoAnimais.Models.ParceiroViewModel
+﻿@model Fatec.ProjetoAnimais.Models.DoacoesViewModel
 
 @{
-    ViewBag.Title = "Parceiro";
+    ViewBag.Title = "Doacoes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3>Nova Parceiro</h3>
-
+<h3>Edição da doação</h3>
 
 @using (Html.BeginForm())
 {
@@ -66,7 +65,7 @@
         <div class="form-group">
             @Html.Label("Motivos pela parceria", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.motivosParceria, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.PasswordFor(model => model.motivosParceria, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.motivosParceria, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -79,9 +78,8 @@
     </div>
 }
 
-@*Colocar voltar para página de doação*@
 <div>
-    @Html.ActionLink("Voltar", "IndexUsuario", "Home" )
+    @Html.ActionLink("Voltar", "Index")
 </div>
 
 @section Scripts {

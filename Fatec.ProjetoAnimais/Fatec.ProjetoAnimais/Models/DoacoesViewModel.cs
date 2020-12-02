@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Fatec.ProjetoAnimais.Models
 {
-    public class ParceiroViewModel
+    public class DoacoesViewModel
     {
   
        
@@ -14,17 +14,17 @@ namespace Fatec.ProjetoAnimais.Models
         public string nome { get; set; }
 
         [Required]
-        public string telefone { get; set; }
+        public DateTime data { get; set; }
 
         [Required]
-        public string email { get; set; }
-
-        public string endereco { get; set; }
-        
-        public string motivosParceria { get; set; }
+        public string produto { get; set; }
 
         [Required]
-        public string cnpjCpf { get; set; }
+        public int quantidade { get; set; }
+
+        [Required]
+        public Double valor { get; set; }
+
 
 
     }

@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace Fatec.ProjetoAnimais.Controllers
 {
@@ -29,7 +30,9 @@ namespace Fatec.ProjetoAnimais.Controllers
                     raca = x.raca,
                     sexo = x.sexo,
                     vacinas = x.vacinas,
-                    situacao = x.situacao
+                    situacao = x.situacao,
+                    Data_adocao = x.Data_adocao
+                    
                 }));
 
                 return View(listViewModel);
@@ -66,7 +69,10 @@ namespace Fatec.ProjetoAnimais.Controllers
                         raca = model.raca,
                         sexo = model.sexo,
                         vacinas = model.vacinas,
-                        situacao = model.situacao
+                        situacao = model.situacao,
+                        Data_adocao = model.Data_adocao
+
+
 
                     };
 
@@ -103,7 +109,9 @@ namespace Fatec.ProjetoAnimais.Controllers
                     raca = db.raca,
                     sexo = db.sexo,
                     vacinas = db.vacinas,
-                    situacao = db.situacao
+                    situacao = db.situacao,
+                    Data_adocao = db.Data_adocao
+
 
                 };
 
@@ -138,6 +146,8 @@ namespace Fatec.ProjetoAnimais.Controllers
                     db.sexo = model.sexo;
                     db.vacinas = model.vacinas;
                     db.situacao = model.situacao;
+                    db.Data_adocao = model.Data_adocao;
+
 
                     context.Entry(db).State = EntityState.Modified;
                     context.SaveChanges();
@@ -169,7 +179,10 @@ namespace Fatec.ProjetoAnimais.Controllers
                     raca = db.raca,
                     sexo = db.sexo,
                     vacinas = db.vacinas,
-                    situacao = db.situacao
+                    situacao = db.situacao,
+                    Data_adocao = db.Data_adocao
+
+
                 };
 
                 return View(model);
@@ -202,6 +215,55 @@ namespace Fatec.ProjetoAnimais.Controllers
                 ModelState.AddModelError("", ex.Message);
                 return View(model);
             }
+        }
+        public ActionResult ListaAdocao(String Mensagem = "")
+        {
+            using (AnimalContexto context = new AnimalContexto())
+            {
+                var listDB = context.Animal.Where(x => x.situacao == (int)AnimalViewModel.eSituacaoAnimal.Disponivel).OrderBy(x => x.especie).ToList();
+                var listViewModel = new List<AnimalViewModel>();
+                listDB.ForEach(x => listViewModel.Add(new AnimalViewModel
+                {
+                    id = x.id,
+                    cidade_encontrado = x.cidade_encontrado,
+                    condicoes = x.condicoes,
+                    especie = x.especie,
+                    porte = x.porte,
+                    raca = x.raca,
+                    sexo = x.sexo,
+                    vacinas = x.vacinas,
+                    situacao = x.situacao,
+                    Data_adocao = x.Data_adocao
+
+                }));
+
+                ViewBag.Mensagem = Mensagem;
+
+                return View(listViewModel);
+            }
+        }
+
+
+        public ActionResult Adotar(int id)
+        {
+
+            using (AnimalContexto context = new AnimalContexto())
+            {
+                var db = context.Animal.Find(id);
+
+                db.situacao = (int)AnimalViewModel.eSituacaoAnimal.Indisponivel;
+                db.Data_adocao = DateTime.Now;
+
+
+                context.Entry(db).State = EntityState.Modified;
+                context.SaveChanges();
+            }
+
+            return RedirectToAction("ListaAdocao", new RouteValueDictionary(
+    new { controller = "Animal", action = "ListaAdocao", Mensagem = "Animal adotado com sucesso!" }));
+
+           
+
         }
     }
 }

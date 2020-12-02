@@ -1,42 +1,31 @@
-﻿@model IEnumerable<Fatec.ProjetoAnimais.Models.ParceiroViewModel>
+﻿@model IEnumerable<Fatec.ProjetoAnimais.Models.DoacoesViewModel>
 
 @{
-    ViewBag.Title = "Parceiros";
+    ViewBag.Title = "Doações Realizadas";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3>Parceiros</h3>
-<p>
-    @Html.ActionLink("Novo", "Create")
-</p>
+<h3>Doações Realizadas</h3>
+
 <table class="table" id="tbDados">
     <thead>
         <tr>
-            <th>
-                Id
-            </th>
+            
             <th>
                 Nome
             </th>
-          
-            <th>
-                Cnpj ou Cpf
-            </th>
-            <th>
-                Telefone
-            </th>
-            <th>
-                Email
-            </th>
-            <th>
-                Endereço
-            </th>
 
             <th>
-                Motivos pela parceria
+                Data
             </th>
-
             <th>
+                Produto
+            </th>
+            <th>
+                Quantidade
+            </th>
+            <th>
+                Valor
             </th>
         </tr>
     </thead>
@@ -44,38 +33,31 @@
 
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.cnpjCpf)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.telefone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.endereco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.motivosParceria)
-            </td>
-
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.id })
-                @Html.ActionLink("Excluir", "Delete", new { id = item.id })
-            </td>
-        </tr>
+            <tr>
+              
+                <td>
+                    @Html.DisplayFor(modelItem => item.nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.data)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.produto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.valor)
+                </td>          
+            </tr>
         }
     </tbody>
 
 </table>
+<div>
+    @Html.ActionLink("Voltar", "Index", "Relatorio")
+</div>
 
 <script type="text/javascript">
 

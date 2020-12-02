@@ -1,11 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Fatec.ProjetoAnimais.Models
 {
     public class AnimalViewModel
     {
-    
+        public enum eSituacaoAnimal
+        {
+            Disponivel = 1,
+            Indisponivel = 2
+        }
+
         public int id { get; set; }
 
         [Required]
@@ -57,7 +63,7 @@ namespace Fatec.ProjetoAnimais.Models
         {
             get
             {
-                if (this.situacao == 1)
+                if (this.situacao == (int)eSituacaoAnimal.Disponivel)
                 {
                     return "Disponível";
                 }
@@ -68,6 +74,9 @@ namespace Fatec.ProjetoAnimais.Models
             }
 
         }
+
+        public DateTime? Data_adocao { get; set; }
+
 
     }
 }

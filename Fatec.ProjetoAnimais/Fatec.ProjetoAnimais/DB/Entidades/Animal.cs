@@ -1,4 +1,6 @@
-﻿namespace Fatec.ProjetoAnimais.DB.Entitidades
+﻿using System;
+
+namespace Fatec.ProjetoAnimais.DB.Entitidades
 {
     public class Animal
     {
@@ -11,6 +13,8 @@
         public int sexo { get; set; }
         public int vacinas { get; set; }
         public int situacao { get; set; }
+        public DateTime? Data_adocao { get; set; }
+
 
     }
 }

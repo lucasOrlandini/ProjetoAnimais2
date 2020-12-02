@@ -10,24 +10,24 @@ using System.Web.Mvc;
 
 namespace Fatec.ProjetoAnimais.Controllers
 {
-    public class ParceiroController : Controller
+    public class DoacoesController : Controller
     {
         // GET: Release
         public ActionResult Index()
         {
             using (AnimalContexto context = new AnimalContexto())
             {
-                var listDB = context.Parceiro.OrderBy(x => x.id).ToList();
-                var listViewModel = new List<ParceiroViewModel>();
-                listDB.ForEach(x => listViewModel.Add(new ParceiroViewModel
+                var listDB = context.Doacoes.OrderBy(x => x.id).ToList();
+                var listViewModel = new List<DoacoesViewModel>();
+                listDB.ForEach(x => listViewModel.Add(new DoacoesViewModel
                 {
                     id = x.id,
                     nome = x.nome,
-                    telefone = x.telefone,
-                    email = x.email,
-                    endereco = x.endereco,
-                   motivosParceria = x.motivosParceria,
-                    cnpjCpf = x.cnpjCpf
+                    data = (DateTime)x.data,
+                    produto = x.produto,
+                    quantidade = x.quantidade,
+                    valor = x.valor
+                  
                    
                 }));
 
@@ -44,7 +44,7 @@ namespace Fatec.ProjetoAnimais.Controllers
 
         // POST: Release/Create
         [HttpPost]
-        public ActionResult Create(ParceiroViewModel model)
+        public ActionResult Create(DoacoesViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -55,19 +55,19 @@ namespace Fatec.ProjetoAnimais.Controllers
             {
                 using (AnimalContexto context = new AnimalContexto())
                 {
-                    Parceiro parceiro = new Parceiro
+                    Doacoes doacoes = new Doacoes
                     {
                         id = model.id,
                         nome = model.nome,
-                        telefone = model.telefone,
-                        email = model.email,
-                        endereco = model.endereco,
-                        motivosParceria = model.motivosParceria,
-                        cnpjCpf = model.cnpjCpf
+                        data = model.data,
+                        produto = model.produto,
+                        quantidade = model.quantidade,
+                        valor = model.valor,
+                       
 
                     };
 
-                    context.Parceiro.Add(parceiro);
+                    context.Doacoes.Add(doacoes);
                     context.SaveChanges();
 
                     return RedirectToAction("Index");
@@ -88,17 +88,17 @@ namespace Fatec.ProjetoAnimais.Controllers
         {
             using (AnimalContexto context = new AnimalContexto())
             {
-                var db = context.Parceiro.Find(id);
+                var db = context.Doacoes.Find(id);
 
-                ParceiroViewModel model = new ParceiroViewModel
+                DoacoesViewModel model = new DoacoesViewModel
                 {
                     id = db.id,
                     nome = db.nome,
-                    telefone = db.telefone,
-                    email = db.email,
-                    endereco = db.endereco,
-                    motivosParceria = db.motivosParceria,
-                    cnpjCpf = db.cnpjCpf
+                    data =(DateTime)db.data,
+                    produto = db.produto,
+                    quantidade = db.quantidade,
+                    valor = db.valor,
+                    
 
                 };
 
@@ -108,7 +108,7 @@ namespace Fatec.ProjetoAnimais.Controllers
 
         // POST: Release/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, ParceiroViewModel model)
+        public ActionResult Edit(int id, DoacoesViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -119,18 +119,18 @@ namespace Fatec.ProjetoAnimais.Controllers
             {
                 using (AnimalContexto context = new AnimalContexto())
                 {
-                    var db = context.Parceiro.Find(id);
+                    var db = context.Doacoes.Find(id);
                     if (db == null)
                     {
-                        ModelState.AddModelError("", "Parceiro não encontrado!");
+                        ModelState.AddModelError("", "Doação não encontrado!");
                         return View(model);
                     }
                     db.nome = model.nome;
-                    db.telefone = model.telefone;
-                    db.email = model.email;
-                    db.endereco = model.endereco;
-                    db.motivosParceria = model.motivosParceria;
-                    db.cnpjCpf = model.cnpjCpf;
+                    db.data = model.data;
+                    db.produto = model.produto;
+                    db.quantidade = model.quantidade;
+                    db.valor = model.valor;
+                   
                     
 
                     context.Entry(db).State = EntityState.Modified;
@@ -151,17 +151,17 @@ namespace Fatec.ProjetoAnimais.Controllers
         {
             using (AnimalContexto context = new AnimalContexto())
             {
-                var db = context.Parceiro.Find(id);
+                var db = context.Doacoes.Find(id);
 
-                ParceiroViewModel model = new ParceiroViewModel
+                DoacoesViewModel model = new DoacoesViewModel
                 {
                    id = db.id,
                    nome = db.nome,
-                   telefone = db.telefone,
-                   email = db.email,
-                   endereco = db.endereco,
-                   motivosParceria = db.motivosParceria,
-                   cnpjCpf = db.cnpjCpf
+                   data = (DateTime)db.data,
+                   produto =db.produto,
+                   quantidade = db.quantidade,
+                   valor = db.valor,
+                   
                };
 
                 return View(model);
@@ -170,20 +170,20 @@ namespace Fatec.ProjetoAnimais.Controllers
 
         // POST: Release/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, ParceiroViewModel model)
+        public ActionResult Delete(int id, DoacoesViewModel model)
         {
             try
             {
                 using (AnimalContexto context = new AnimalContexto())
                 {
-                    var db = context.Parceiro.Find(id);
+                    var db = context.Doacoes.Find(id);
                     if (db == null)
                     {
                         ModelState.AddModelError("", "Animal não encontrado!");
                         return View(model);
                     }
 
-                    context.Parceiro.Remove(db);
+                    context.Doacoes.Remove(db);
                     context.SaveChanges();
                 }
 
