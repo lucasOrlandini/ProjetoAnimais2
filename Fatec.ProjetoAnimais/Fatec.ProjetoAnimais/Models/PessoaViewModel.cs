@@ -5,7 +5,7 @@ namespace Fatec.ProjetoAnimais.Models
 {
     public class PessoaViewModel
     {
-  
+
         public enum ePerfil
         {
             Admin = 1,
@@ -24,8 +24,17 @@ namespace Fatec.ProjetoAnimais.Models
         public string nome { get; set; }
 
         public string sobrenome { get; set; }
+
         
+        [Display(Name = "Data de Retorno")]
+
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+
+        [DataType(DataType.Date, ErrorMessage = "Data em formato inválido")]
+
+        [Required]
         public DateTime? datanasc { get; set; }
+
 
         [Required]
         public string senha { get; set; }
@@ -36,9 +45,9 @@ namespace Fatec.ProjetoAnimais.Models
 
         public string descPerfil
         {
-            get 
+            get
             {
-                if(this.perfil == 1)
+                if (this.perfil == 1)
                 {
                     return "Admin";
                 }
@@ -47,8 +56,11 @@ namespace Fatec.ProjetoAnimais.Models
                     return "Usuário";
                 }
             }
-        
+
         }
+
+
+
 
     }
 }

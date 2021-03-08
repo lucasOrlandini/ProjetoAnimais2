@@ -10,20 +10,24 @@ namespace Fatec.ProjetoAnimais.Models
 
         public int id { get; set; }
 
-        [Required]
+        
         public string nome { get; set; }
 
-        [Required]
+        [Display(Name = "Data de Retorno")]
+
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+
+        [DataType(DataType.Date, ErrorMessage = "Data em formato inválido")]
         public DateTime data { get; set; }
 
-        [Required]
+       
         public string produto { get; set; }
 
-        [Required]
+       
         public int quantidade { get; set; }
 
-        [Required]
-        public Double valor { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:c}")]
+        public double valor { get; set; }
 
 
 

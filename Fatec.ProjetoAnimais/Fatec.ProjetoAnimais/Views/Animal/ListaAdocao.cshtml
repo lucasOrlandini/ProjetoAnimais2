@@ -92,16 +92,16 @@
     </tbody>
 
 </table>
-
+<div>
+    @Html.ActionLink("Voltar", "IndexUsuario", "Home")
+</div>
 @if (!String.IsNullOrEmpty(ViewBag.Mensagem))
 {
 <script type="text/javascript">
     alert("@ViewBag.Mensagem");
 </script>
 
-<div>
-    @Html.ActionLink("Voltar", "IndexUsuario", "Home")
-</div>
+
 
 }
 

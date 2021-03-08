@@ -41,38 +41,42 @@
 
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.cpf)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.sobrenome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.datanasc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.descPerfil)
-            </td>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cpf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sobrenome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.datanasc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descPerfil)
+                </td>
 
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.id })
-                @Html.ActionLink("Excluir", "Delete", new { id = item.id })
-            </td>
-        </tr>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.id })
+                    @Html.ActionLink("Excluir", "Delete", new { id = item.id })
+                </td>
+            </tr>
         }
     </tbody>
 
 </table>
+<div>
+    @Html.ActionLink("Voltar", "IndexAdmin", "Home")
+</div>
+
 
 <script type="text/javascript">
 
