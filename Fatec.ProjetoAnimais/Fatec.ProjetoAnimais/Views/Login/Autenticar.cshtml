@@ -6,10 +6,18 @@
 }
     <style>
         body {
-            background-image: url("/imagens/CachorroLogin2.jpg");
+            background-image: url("/imagens/Pipa.jpg");
             background-repeat: no-repeat;
-            background-size: 50%;
-            background-position: bottom -100px right 100px;
+            background-size: 100%;
+            background-position: bottom -210px right 0px;
+            color:white;
+        }
+        .text-danger {
+            color: #820603;
+        }
+        a {
+            color: white;
+            text-decoration: none;
         }
     </style>
 
@@ -45,21 +53,27 @@
                         </div>
                     </div>
                 </div>*@
-            <div class="form-group">
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Entrar" class="btn btn-default" />
             </div>
+            
             <div class="col-md-offset-2 col-md-10">
+                <br />
                 <p>
-            @Html.ActionLink("Registre-se como um novo usuário", "AutoCadastro", "Usuario")
-        </p>
+                    @Html.ActionLink("Registre-se como um novo usuário", "AutoCadastro", "Usuario")
+                    <br />
+
+                <p>
+                    @Html.ActionLink("Esqueceu sua senha?", "ForgotPassword","Login")
+                </p>
+                @*<a asp-action="ForgotPassowrd">Esqueceu sua senha?</a>*@
+                </p>
             </div>
         </div>
-              
-                @* Habilite quando a confirmação da conta estiver ativada para a funcionalidade de redefinição de senha
-                    <p>
-                        @Html.ActionLink("Esqueceu sua senha?", "ForgotPassword")
-                    </p>*@
+
+                //Habilite quando a confirmação da conta estiver ativada para a funcionalidade de redefinição de senha
+                
             }
         </section>
     </div>

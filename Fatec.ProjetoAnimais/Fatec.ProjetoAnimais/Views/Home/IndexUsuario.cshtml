@@ -2,46 +2,56 @@
 
 
 @{
-    ViewBag.Title = "Projeto Animais";
+    ViewBag.Title = "Aprendendo";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
 
 <style>
-    body {
-        background-image: url("/imagens/feliz.jpg");
-        background-repeat: no-repeat;
-        background-size: 100%;
-    }
-
-    /*.row {
-        position: absolute;
-        top: 50%;*/ /* posiciona na metade da tela */
-    /*margin-top: -25px;*/ /* e retrocede metade da altura */
-    /*}*/
-    /*}*/
-
-    .btn-default {
-        font-size: 20px;
-        background-color: #000000eb;
-        color: white;
-    }
-
-    .btn-primary {
-        font-size: 20px;
-        background-color: #000000eb;
-        color: white;
-        border-color: #ccc;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-        .btn-primary:hover {
-           /* text-decoration: underline;*/
-            background: #ccc;
-            color: #333;
+        body {
+            background-image: url("/imagens/telaPrincipal5.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: bottom -1000px right 10px;
         }
+
+        /*.row {
+            position: absolute;
+            top: 50%;*/ /* posiciona na metade da tela */
+        /*margin-top: -25px;*/ /* e retrocede metade da altura */
+        /*}*/
+        /*}*/
+        h1 {
+            color: white;
+            font-family: 'Times New Roman', Times, serif;
+            /*font-weight: bold;*/
+            /*        font:bold;
+    */
+        }
+
+        .btn-default {
+            font-size: 20px;
+            background-color: #000000eb;
+            color: white;
+        }
+
+        .btn-primary {
+            font-size: 22px;
+            background-color: #ffffff80;
+            color: black;
+            border-color: #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Times New Roman', Times, serif;
+            border-radius: 30px
+        }
+
+            .btn-primary:hover {
+                /* text-decoration: underline;*/
+                background: #ccc;
+                color: #333;
+            }
 </style>
 
 <br />
@@ -49,29 +59,36 @@
 <br />
 <br />
 <br />
-<br />
-<br />
-<br />
+
+
+
 <div class="row" align="center" top="50%">
-    <div class="col" width="100px">
-        <a href="@Url.Action("ListaAdocao","Animal")" class="btn btn-primary" style="width: 280px; height: 80px">Adotar um animal</a>
-    </div>
-    <br/>
-    <div class="col">
+    @*<div class="col" width="100px">
+            <a href="@Url.Action("Create","Atividade")" class="btn btn-primary" style="width: 280px; height: 80px">Registrar uma atividade</a>
+        </div>*@
 
-        <a href="@Url.Action("Create","Animal")" class="btn btn-primary" style="width: 280px; height: 80px">Registrar um animal</a>
+
+    <h1><span style="color: green;">É apenas uma maneira</span><span style="color: blue;"> diferente de ver o mundo</span> <span style="color: #f7002e;">com jeito único de ser</span> </h1><br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="col">
+        <a href="@Url.Action("AtividadesAluno","Atividade")" class="btn btn-primary" style="width: 280px; height: 80px">Vamos começar</a>
 
 
         @*<input type="button" value="Registrar um Animal" name="Create" class="btn btn-default" style="width: 300px; height: 80px" />*@
     </div>
-    <br/>
+    <br />
     <div class="w-100"></div>
-     <br/>
-    <div class="col">
+    <br />
+    @*<div class="col">*@
 
-        <a href="@Url.Action("Create","Doacoes")" class="btn btn-primary" style="width: 280px; height: 80px">Faça uma doação!</a>
+    @*<a href="@Url.Action("Create","Doacoes")" class="btn btn-primary" style="width: 280px; height: 80px">Faça uma doação!</a>*@
 
 
-        @*<input type="button" value="Registrar um Animal" name="Create" class="btn btn-default" style="width: 300px; height: 80px" />*@
-    </div><br />
+    @*<input type="button" value="Registrar um Animal" name="Create" class="btn btn-default" style="width: 300px; height: 80px" />*@
+    @*</div><br />*@
 </div>

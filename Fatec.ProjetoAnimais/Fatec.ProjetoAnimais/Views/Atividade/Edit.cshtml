@@ -1,0 +1,107 @@
+﻿@model Fatec.ProjetoAnimais.Models.AtividadeViewModel
+@using Fatec.ProjetoAnimais.Models
+@{
+    ViewBag.Title = "Atividades";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<style>
+    body {
+        background-image: url("/imagens/Atividadessss.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: bottom -210px right 0px;
+        color: #333333;
+    }
+
+    h3 {
+        width: 25%;
+        margin: 0px auto;
+    }
+
+    .form-horizontal .control-label {
+        padding-top: 7px;
+        margin-bottom: 13px;
+        text-align: center;
+    }
+
+    fieldset {
+        width: 50%;
+        margin: 1px auto;
+    }
+</style>
+<br>
+<h3>Edição de Atividade</h3>
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <fieldset @*style = "width: 50%; margin: 0px auto;"*@>
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            @*<div class="form-group">
+                @Html.Label("Tipo da Atividade", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("idTipoAtividade", String.Empty)
+                    @Html.ValidationMessageFor(model => model.nomeAtividade, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+
+            <div class="form-group">
+                @Html.Label("Descrição da Atividade", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.descricaoAtividade, new
+                    {
+                        htmlAttributes = new
+                        {
+                            @class = "form-control"@*, @placeholder = "Ex: Cachorro, gato..."*@}
+})
+                    @Html.ValidationMessageFor(model => model.descricaoAtividade, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            @*<div class="form-group">
+                @Html.Label("Alunos", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @for (int contador = 0; contador < ((List<PessoaViewModel>)ViewBag.idAluno).Count; contador++)
+                    {
+                        var aluno = ViewBag.idAluno[contador];
+                        <input type="checkbox" id='AlunosSelecionados[@contador]' name='AlunosSelecionados[@contador]' value="@aluno.id" /> <label for='idAluno[@contador]'>@aluno.nome</label>
+                        <br />
+                    }
+                </div>
+            </div>*@
+            <div class="form-group">
+                @Html.Label("Data de Entrega", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.dataEntrega, new { htmlAttributes = new { @class = "datepicker" } })
+                    @Html.ValidationMessageFor(model => model.dataEntrega, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Salvar" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

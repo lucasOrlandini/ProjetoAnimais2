@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Fatec.ProjetoAnimais.DB.Entitidades;
 using Fatec.ProjetoAnimais.Sessao;
+using Fatec.ProjetoAnimais.Util;
 
 namespace Fatec.ProjetoAnimais.Controllers
 {
@@ -38,7 +39,7 @@ namespace Fatec.ProjetoAnimais.Controllers
                 return View(model);
             }
 
-            AnimalContexto contexto = new AnimalContexto();
+            AutismoContext contexto = new AutismoContext();
 
             //var teste = contexto.db
 
@@ -51,15 +52,15 @@ namespace Fatec.ProjetoAnimais.Controllers
             }
             else
             {
-                ControleSessao.UsuarioLogado = new PessoaViewModel { email = pessoa.email, perfil = pessoa.perfil, nome = pessoa.nome };
-                if (pessoa.perfil == (int)PessoaViewModel.ePerfil.Admin)
+                ControleSessao.UsuarioLogado = new PessoaViewModel { id = pessoa.id, email = pessoa.email, perfil = pessoa.perfil, nome = pessoa.nome };
+                if (pessoa.perfil == (int)PessoaViewModel.ePerfil.Professor)
                 {
                     return RedirectToAction("IndexAdmin", "Home");
                 }
                 else
                 {
                     return RedirectToAction("IndexUsuario", "Home");
-                }               
+                }
             }
 
 
@@ -72,8 +73,35 @@ namespace Fatec.ProjetoAnimais.Controllers
             //        return RedirectToLocal(returnUrl);
             //    default:
             //        ModelState.AddModelError("", "Tentativa de login inválida.");
-            
+
             //}
         }
+        [HttpGet]
+        [AllowAnonymous]
+        public  ActionResult ForgotPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        public  ActionResult ForgotPassword(ForgotPasswordViewModel model)
+        {
+            using (AutismoContext contexto = new AutismoContext())
+            {
+                Pessoa pessoa = contexto.Pessoa.FirstOrDefault(x => x.email == model.Email);
+
+                if (pessoa == null)
+                {
+                    //Exibir mensagem que o usuário nao existe
+                    ModelState.AddModelError("", "Email não encontrado");
+                    return View();
+                }
+
+                Email.enviarSenha(model.Email, pessoa.senha);
+                ViewBag.Mensagem = "Senha enviada para o email [" + model.Email + "] com sucesso.";
+                return View();
+            }
+        }
     }
+    
 }

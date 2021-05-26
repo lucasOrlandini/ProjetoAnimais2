@@ -1,0 +1,39 @@
+﻿@model Fatec.ProjetoAnimais.Models.AtividadeViewModel
+
+@{
+    ViewBag.Title = "Atividades";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Exclusão de atividade</h3>
+
+<h4>Confirma a exclusão desta atividade?</h4>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.nomeAtividade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.nomeAtividade)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" />
+            <br />
+            <br />
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

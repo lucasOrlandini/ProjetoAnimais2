@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Fatec.ProjetoAnimais.Models.AtividadeViewModel>
+
+@{
+    ViewBag.Title = "Atividades do Aluno";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Atividades do Aluno</h3>
+<p>
+</p>
+<table class="table" id="tbDados">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Tipo da Atividade
+            </th>
+            <th>
+                Descrição da atividade
+            </th>
+            <th>
+                Aluno
+            </th>
+            <th>
+                Data de Entrega
+            </th>
+            <th>
+                Data da Conclusão
+            </th>
+            <th>
+                Resultado da Atividade
+            </th>
+            <th>
+                Realizar Atividade
+            </th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipoAtividade.descricaoTipoAtividade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descricaoAtividade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.aluno.nome)
+            </td>
+            <td>
+                @item.dataEntrega.Value.ToString("dd/MM/yyyy")
+            </td>
+            <td>
+                @(item.dataConclusao.HasValue? item.dataConclusao.Value.ToString("dd/MM/yyyy HH:mm:ss"):"")
+            </td>
+            <td>
+                @(item.dataConclusao.HasValue? @item.textoResultadoAtividade : "")
+            </td>
+            <td>
+                @if (!item.dataConclusao.HasValue)
+                {
+                    @Html.ActionLink("Realizar Atividade", "TipoAtividade" + item.idTipoAtividade, "Atividade", new { id = item.id }, null);
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<div>
+    @Html.ActionLink("Voltar", "IndexUsuario", "Home")
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#tbDados').dataTable({
+            "language": {
+                "paginate": { "first ": "Primeira", "previous": "Anterior", "next": "Próxima", "last": "Última" },
+                "emptyTable": "Consulta não retornou registros",
+                "info": "Exibindo de _START_ até _END_ de _TOTAL_ registros",
+                "infoEmpty": "Exibindo 0 registros",
+                "infoFiltered": "(filtrados do total de _MAX_ registros)",
+                "infoPostFix": "", "thousands": ",",
+                "lengthMenu": "Exibir _MENU_ registro(s) por página",
+                "loadingRecords": "Carregando...",
+                "processing": "Processando...",
+                "search": "Filtrar:",
+                "zeroRecords": "Consulta não retornou registros",
+            },
+
+        });
+
+    });
+
+</script>
+

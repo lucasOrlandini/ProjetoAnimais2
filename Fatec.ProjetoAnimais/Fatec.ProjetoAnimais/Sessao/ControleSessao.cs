@@ -12,7 +12,7 @@ namespace Fatec.ProjetoAnimais.Sessao
             {
                 if (HttpContext.Current.Session["UsuarioLogado"] == null)
                 {
-                    HttpContext.Current.Response.Redirect("~/Home/Login");
+                    HttpContext.Current.Response.Redirect("~/Login/Autenticar");
                     return null;
                 }
 

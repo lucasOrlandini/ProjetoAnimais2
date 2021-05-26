@@ -8,8 +8,8 @@ namespace Fatec.ProjetoAnimais.Models
 
         public enum ePerfil
         {
-            Admin = 1,
-            Usuario = 2
+            Professor = 1,
+            Aluno = 2
         }
 
         public int id { get; set; }
@@ -26,7 +26,7 @@ namespace Fatec.ProjetoAnimais.Models
         public string sobrenome { get; set; }
 
         
-        [Display(Name = "Data de Retorno")]
+        [Display(Name = "Data de Nascimento")]
 
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
 
@@ -49,18 +49,13 @@ namespace Fatec.ProjetoAnimais.Models
             {
                 if (this.perfil == 1)
                 {
-                    return "Admin";
+                    return "Professor";
                 }
                 else
                 {
-                    return "Usuário";
+                    return "Aluno";
                 }
             }
-
         }
-
-
-
-
     }
 }

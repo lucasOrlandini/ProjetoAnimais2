@@ -1,0 +1,219 @@
+﻿@model Fatec.ProjetoAnimais.Models.AtividadeViewModel
+
+@{
+    ViewBag.Title = "TipoAtividade2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    img {
+        position: relative;
+        left: 40%;
+        width: 20%;
+        height: 30%;
+    }
+
+    #btn_1 {
+        color: black;
+        background: #ffffff00;
+        font-size: 22px;
+        padding: 10px 25px;
+        border-radius: 20px;
+        border: 3px solid black
+    }
+
+    #btn_2 {
+        color: black;
+        background: #ffffff00;
+        font-size: 22px;
+        padding: 10px 50px;
+        border-radius: 20px;
+        border: 3px solid black
+    }
+
+    #btn_3 {
+        color: black;
+        background: #ffffff00;
+        font-size: 22px;
+        padding: 10px 45px;
+        border-radius: 20px;
+        border: 3px solid black
+    }
+
+    #Enviar {
+        color: black;
+        background: #ffffff00;
+        font-size: 18px;
+        padding: 5px 20px;
+        border-radius: 10px;
+        border: 3px solid black
+    }
+
+    #btn_3:hover {
+        background-color: black;
+        color: white;
+        -moz-transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+    #btn_2:hover {
+        background-color: black;
+        color: white;
+        -moz-transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+    #btn_1:hover {
+        background-color: black;
+        color: white;
+        -moz-transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+    .bt-container {
+        text-align: center
+    }
+
+    .atividade {
+        background-color:;
+        border-width: 5px 5px 5px 5px; /* aqui, cada lado possui uma borda de largura diferente */
+        border-style: dotted; /* estilos de borda diferentes para cima-baixo e esquerda-direita */
+        border-color: #8B1A1A #8B1A1A #8B1A1A #8B1A1A; /* uma cor de borda para cada lado */
+        padding: 20px;
+    }
+</style>
+
+
+<form action="@Url.Action("TipoAtividade2", "Atividade")" method="post">
+
+    <div class="container">
+        @Html.HiddenFor(model => model.id)
+        @Html.HiddenFor(model => model.resultadoAtividade)
+        <input type="hidden" id="numeroSelecionado" />
+        <br />
+        <div class="atividade">
+            <h1> Associação de Animais</h1>
+            <br>
+            <img id="img_1" src="../../imagens/Cavalo.png" style="display:none;">
+            <img id="img_2" src="../../imagens/Galinha.png" style="display:none;">
+            <img id="img_3" src="../../imagens/Gato.png" style="display:none;">
+            <br>
+            <br>
+            <h6>Selecione o correto!</h6>
+            <hr WIDTH=100% />
+            <br>
+            <br>
+            <div class="bt-container">
+                <button id="btn_1" value="1">Cavalo</button> &nbsp; &nbsp;
+                <button id="btn_2" value="2">Galinha</button> &nbsp; &nbsp;
+                <button id="btn_3" value="3">Gato</button><br><br>
+                <input id="btn_submit" type="submit" value="Salvar" class="btn btn-default" style="display:none;" />
+            </div>
+            <br>
+            <br>
+            <br>
+            <h2 id="msg_ok" style="display:none;"> Você <span style="color: green;">ACERTOU!</span> Parabéns!</h2>
+            <h2 id="msg_nok" style="display:none;"> Você <span style="color: red;">ERROU!</span>, está aí uma dica: <span id="lblDica"></span></h2>
+        </div>
+    </div>
+    <div>
+        @Html.ActionLink("Voltar", "AtividadesAluno", "Atividade")
+    </div>
+</form>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var numeroSelecionado = Math.floor(Math.random() * 3 + 1);
+
+        $("#img_" + numeroSelecionado).show();
+        $("#numeroSelecionado").val(numeroSelecionado);
+
+        var dica = "";
+        if (numeroSelecionado == 1)
+            dica = "Ele tem um amigo chamado pé de pano";
+        else if (numeroSelecionado == 2)
+            dica = "Ela faz o barulho Có có có";
+        else if (numeroSelecionado == 3)
+            dica = "Ele faz o barulho miau miau";
+
+
+        $("#btn_1").click(function () {
+
+            $("#btn_1").hide();
+            $("#btn_2").hide();
+            $("#btn_3").hide();
+            $("#btn_submit").show();
+
+            if ($("#numeroSelecionado").val() == 1) {
+                $("#resultadoAtividade").val(1);
+                $("#msg_ok").show();
+                $("#msg_nok").hide();
+            }
+            else {
+                $("#resultadoAtividade").val(0);
+                $("#msg_ok").hide();
+                $("#msg_nok").show();
+                $("#lblDica").text(dica);
+
+            }
+            return false;
+
+        });
+
+        $("#btn_2").click(function () {
+
+            $("#btn_1").hide();
+            $("#btn_2").hide();
+            $("#btn_3").hide();
+            $("#btn_submit").show();
+
+            if ($("#numeroSelecionado").val() == 2) {
+                $("#resultadoAtividade").val(1);
+                $("#msg_ok").show();
+                $("#msg_nok").hide();
+            }
+            else {
+                $("#resultadoAtividade").val(0);
+                $("#msg_ok").hide();
+                $("#msg_nok").show();
+                $("#lblDica").text(dica);
+
+            }
+            return false;
+        });
+
+        $("#btn_3").click(function () {
+
+            $("#btn_1").hide();
+            $("#btn_2").hide();
+            $("#btn_3").hide();
+            $("#btn_submit").show();
+
+            if ($("#numeroSelecionado").val() == 3) {
+                $("#resultadoAtividade").val(1);
+                $("#msg_ok").show();
+                $("#msg_nok").hide();
+            }
+            else {
+                $("#resultadoAtividade").val(0);
+                $("#msg_ok").hide();
+                $("#msg_nok").show();
+                $("#lblDica").text(dica);
+
+            }
+            return false;
+
+        });
+
+    });
+
+</script>

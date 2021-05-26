@@ -15,7 +15,7 @@ namespace Fatec.ProjetoAnimais.Controllers
         //definindo que o auto cadastro sempre vai ser o usuário
         public ActionResult AutoCadastro()
         {
-            var model = new PessoaViewModel {perfil = (int)PessoaViewModel.ePerfil.Usuario };
+            var model = new PessoaViewModel {perfil = (int)PessoaViewModel.ePerfil.Aluno };
             return View(model);
         }
 
@@ -31,7 +31,7 @@ namespace Fatec.ProjetoAnimais.Controllers
 
             try
             {
-                using (AnimalContexto context = new AnimalContexto())
+                using (AutismoContext context = new AutismoContext())
                 {
                     Pessoa pessoa = new Pessoa
                     {
@@ -42,7 +42,7 @@ namespace Fatec.ProjetoAnimais.Controllers
                         sobrenome = model.sobrenome,
                         datanasc = model.datanasc,
                         senha = model.senha,
-                        perfil = (int)PessoaViewModel.ePerfil.Usuario
+                        perfil = (int)PessoaViewModel.ePerfil.Aluno
 
                     };
 

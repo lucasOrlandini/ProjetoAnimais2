@@ -14,7 +14,7 @@ namespace Fatec.ProjetoAnimais.Controllers
         // GET: Release
         public ActionResult Index()
         {
-            using (AnimalContexto context = new AnimalContexto())
+            using (AutismoContext context = new AutismoContext())
             {
                 var listDB = context.Pessoa.OrderBy(x => x.id).ToList();
                 var listViewModel = new List<PessoaViewModel>();
@@ -52,7 +52,7 @@ namespace Fatec.ProjetoAnimais.Controllers
 
             try
             {
-                using (AnimalContexto context = new AnimalContexto())
+                using (AutismoContext context = new AutismoContext())
                 {
                     Pessoa pessoa = new Pessoa
                     {
@@ -86,10 +86,10 @@ namespace Fatec.ProjetoAnimais.Controllers
         // GET: Release/Edit/5
         public ActionResult Edit(int id)
         {
-            using (AnimalContexto context = new AnimalContexto())
+            using (AutismoContext context = new AutismoContext())
             {
                 var db = context.Pessoa.Find(id);
-
+                    
                 PessoaViewModel model = new PessoaViewModel
                 {
                     id = db.id,
@@ -117,7 +117,7 @@ namespace Fatec.ProjetoAnimais.Controllers
 
             try
             {
-                using (AnimalContexto context = new AnimalContexto())
+                using (AutismoContext context = new AutismoContext())
                 {
                     var db = context.Pessoa.Find(id);
                     if (db == null)
@@ -149,7 +149,7 @@ namespace Fatec.ProjetoAnimais.Controllers
         // GET: Release/Delete/5
         public ActionResult Delete(int id)
         {
-            using (AnimalContexto context = new AnimalContexto())
+            using (AutismoContext context = new AutismoContext())
             {
                 var db = context.Pessoa.Find(id);
 
@@ -176,7 +176,7 @@ namespace Fatec.ProjetoAnimais.Controllers
         {
             try
             {
-                using (AnimalContexto context = new AnimalContexto())
+                using (AutismoContext context = new AutismoContext())
                 {
                     var db = context.Pessoa.Find(id);
                     if (db == null)

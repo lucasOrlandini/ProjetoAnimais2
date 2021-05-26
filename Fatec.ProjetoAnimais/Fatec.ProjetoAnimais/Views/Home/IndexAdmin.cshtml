@@ -1,18 +1,25 @@
-﻿
-
-
+﻿@model Fatec.ProjetoAnimais.Models.IndexAdminViewModel
 @{
-    ViewBag.Title = "Projeto Animais";
+    ViewBag.Title = "Aprendendo ";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
-
 <style>
     body {
         background-image: url("/imagens/feliz.jpg");
         background-repeat: no-repeat;
         background-size: 100%;
     }
-
-   
 </style>
+<h1>Dashboard</h1>
+<hr />
+<div class="row">
+    <div>
+        <div class="col-md-6 col-md-6">
+            @(Model.grafico1)
+        </div>
+        <div class="col-md-6 col-md-6">
+            @(Model.grafico2)
+        </div>
+    </div>
+</div>
